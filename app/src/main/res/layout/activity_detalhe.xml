@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.main.atendimento.detalhe.DetalheActivity">
+
+    <TextView
+        android:id="@+id/tvDetails"
+        style="@style/hallsApp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="Details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lbName"
+        style="@style/labelDetalhe"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:text="Employe:"
+        app:layout_constraintEnd_toStartOf="@+id/lbNameEmployee"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDetails" />
+
+    <TextView
+        android:id="@+id/lbNameEmployee"
+        style="@style/labelDetalhe"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/lbName"
+        app:layout_constraintTop_toTopOf="@+id/lbName" />
+
+    <TextView
+        android:id="@+id/lbService"
+        style="@style/labelDetalhe"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:text="Service:"
+        app:layout_constraintEnd_toStartOf="@+id/lbServiceName"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbName" />
+
+    <TextView
+        android:id="@+id/lbServiceName"
+        style="@style/labelDetalhe"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/lbService"
+        app:layout_constraintTop_toTopOf="@+id/lbService" />
+
+    <TextView
+        android:id="@+id/lbDate"
+        style="@style/labelDetalhe"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="32dp"
+        android:text="Date:"
+        app:layout_constraintEnd_toStartOf="@+id/lbDateAttendance"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbService" />
+
+    <TextView
+        android:id="@+id/lbDateAttendance"
+        style="@style/labelDetalhe"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/lbDate"
+        app:layout_constraintTop_toTopOf="@+id/lbDate" />
+
+    <Button
+        android:id="@+id/btnAtualizar"
+        style="@style/buttons"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="Update"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbDate" />
+
+    <Button
+        android:id="@+id/btnDeletar"
+        style="@style/buttons"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:text=" Mark off"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAtualizar" />
+
+</android.support.constraint.ConstraintLayout>
