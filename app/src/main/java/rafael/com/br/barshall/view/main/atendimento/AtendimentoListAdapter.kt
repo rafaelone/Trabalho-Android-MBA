@@ -42,11 +42,11 @@ class AtendimentoListAdapter(
         fun bindView(atendimento: Attendance,
                      listener: (Attendance) -> Unit,
                      listenerDelete: (Attendance) -> Unit) = with(itemView){
-            tvServico.text = atendimento.nomeServico
+            tvServico.text = atendimento.servico
             tvPreco.text = atendimento.preco
             tvFuncionario.text = atendimento.funcionario
 
-            if(atendimento.nomeServico == "Corte de cabelo"){
+            if(atendimento.servico == "Corte de cabelo"){
                 ivServ.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.cortecabelo))
             }
 

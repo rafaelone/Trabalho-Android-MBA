@@ -16,15 +16,5 @@ interface SalaoAPI{
     @POST("/login/login-in")
     fun logIn(@Body client: Client): Call<Client>
 
-    @POST("/attendance/list")
-    fun getAttendance(@Body attendance: Attendance): Call<List<Attendance>>
 
-    @GET("/service/list")
-    fun getService(): Call<List<Service>>
-
-    @GET("/employee/list")
-    fun getEmployee(): Call<List<Employee>>
-
-    @POST("/attendance/new")
-    fun newAttendance(@Body attendance: Attendance): Call<Attendance>
 }

@@ -1,57 +1,33 @@
 package rafael.com.br.barshall.model
 
-import android.os.Parcel
-import android.os.Parcelable
+import android.arch.persistence.room.Entity
+import android.arch.persistence.room.PrimaryKey
 
-data class Attendance (
+@Entity
+class Attendance {
 
-        var idAtendimento: Int?,
-        var id_cliente: String,
-        var idServico: String,
-        var idFuncionario: String,
-        var data: String,
-        var nomeServico: String,
-        var preco: String,
-        var funcionario: String
+    @PrimaryKey(autoGenerate = true)
+    var id: Int = 0
+    var id_cliente: String? = null
+    var data: String? = null
+    var servico: String? = null
+    var preco: String? = null
+    var funcionario: String? = null
 
-): Parcelable{
-    constructor(parcel: Parcel) : this(
-            parcel.readValue(Int::class.java.classLoader) as? Int,
-            parcel.readString(),
-            parcel.readString(),
-            parcel.readString(),
-            parcel.readString(),
-            parcel.readString(),
-            parcel.readString(),
-            parcel.readString()) {
-    }
+    constructor(){}
 
-    override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeValue(idAtendimento)
-        parcel.writeString(id_cliente)
-        parcel.writeString(idServico)
-        parcel.writeString(idFuncionario)
-        parcel.writeString(data)
-        parcel.writeString(nomeServico)
-        parcel.writeString(preco)
-        parcel.writeString(funcionario)
-    }
-
-    override fun describeContents(): Int {
-        return 0
-    }
-
-    companion object CREATOR : Parcelable.Creator<Attendance> {
-        override fun createFromParcel(parcel: Parcel): Attendance {
-            return Attendance(parcel)
-        }
-
-        override fun newArray(size: Int): Array<Attendance?> {
-            return arrayOfNulls(size)
-        }
+    constructor(id: Int, id_cliente: String, data: String, servico: String, preco: String, funcionario: String){
+        this.id = id
+        this.id_cliente = id_cliente
+        this.data = data
+        this.servico = servico
+        this.preco = preco
+        this.funcionario = funcionario
     }
 
 }
+
+
 
 
 

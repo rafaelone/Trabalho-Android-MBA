@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.fragment_lista_atendimento.view.*
 
 import rafael.com.br.barshall.R
 import rafael.com.br.barshall.model.Attendance
-import rafael.com.br.barshall.view.dialogs.AtendimentoDialog
+
 import rafael.com.br.barshall.view.main.atendimento.detalhe.DetalheActivity
 import java.lang.Float.parseFloat
 
@@ -38,10 +38,6 @@ class ListaAtendimentoFragment : Fragment() {
 
         atendimentoViewModel = ViewModelProviders.of(this).get(AtendimentoViewModel::class.java)
 
-        atendimentoViewModel.atendimentos.observe(this, atendimentoObserver)
-
-
-        showDialog(view)
 
         list()
 
@@ -50,41 +46,16 @@ class ListaAtendimentoFragment : Fragment() {
 
     fun list(){
 
-        val sharedPreferences = this.getActivity()?.getSharedPreferences("myapp", Context.MODE_PRIVATE)
-        val id = sharedPreferences?.getString("id", "")
-
-
-        atendimentoViewModel.listAttendance(id.toString())
     }
 
     private var atendimentoObserver = Observer<List<Attendance>>{
-        Log.i("itsucesso", ": "+it)
-        preencherALista(it!!)
+
     }
 
     private fun preencherALista(atendimentos: List<Attendance>){
 
-        adapter = AtendimentoListAdapter(requireContext(), atendimentos, {atendimentos ->
-            val detalheActivity = Intent(requireContext(), DetalheActivity::class.java)
-            detalheActivity.putExtra("ATENDIMENTO", atendimentos)
-            startActivity(detalheActivity)
-        }, {})
-        rvAtendimentos.adapter = adapter
-        rvAtendimentos.layoutManager = LinearLayoutManager(requireContext())
-
     }
 
-    private fun showDialog(view: View){
-
-       view.fab.setOnClickListener { view ->
-            val dialog = AtendimentoDialog()
-            val fm = getActivity()!!.getSupportFragmentManager()
-
-            dialog.show(activity?.supportFragmentManager, "Service Registration")
-
-
-        }
-    }
 
 
 
