@@ -5,7 +5,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
@@ -42,9 +41,11 @@
         <activity
             android:name=".view.main.map.MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".view.main.atendimento.detalhe.DetalheActivity"
-            android:theme="@style/FullScreen"
-            ></activity>
+        <activity
+            android:name=".view.main.atendimento.detalhe.DetalheActivity"
+            android:theme="@style/FullScreen" />
+        <activity android:name=".view.main.atendimento.novo.CadastroAtendimentoActivity"
+            android:theme="@style/FullScreen"></activity>
     </application>
 
 </manifest>

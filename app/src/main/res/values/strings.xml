@@ -8,4 +8,18 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_maps">Map</string>
+    
+    <string-array name="str_servico">
+        <item>Corte de cabelo - R$ 20,00</item>
+        <item>Manicure - R$ 25,00</item>
+        <item>Barba  - R$ 10,00</item>
+        <item>Pé de cure - R$ 25,00</item>
+        <item>Luzes - R$ 20,00</item>
+    </string-array>
+    <string-array name="str_funcionario">
+        <item>Ana Paulo</item>
+        <item>Roberta</item>
+        <item>Osvaldo</item>
+        <item>Eric</item>
+    </string-array>
 </resources>

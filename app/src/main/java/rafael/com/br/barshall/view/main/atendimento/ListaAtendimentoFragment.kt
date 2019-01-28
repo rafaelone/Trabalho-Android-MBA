@@ -21,6 +21,7 @@ import rafael.com.br.barshall.R
 import rafael.com.br.barshall.model.Attendance
 
 import rafael.com.br.barshall.view.main.atendimento.detalhe.DetalheActivity
+import rafael.com.br.barshall.view.main.atendimento.novo.CadastroAtendimentoActivity
 import java.lang.Float.parseFloat
 
 
@@ -28,6 +29,7 @@ class ListaAtendimentoFragment : Fragment() {
 
     lateinit var atendimentoViewModel : AtendimentoViewModel
     private var adapter: AtendimentoListAdapter? = null
+    private var atendimentos : List<Attendance> = listOf()
 
     val FORMULARIO_REQUEST_CODE = 1
 
@@ -35,32 +37,34 @@ class ListaAtendimentoFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
 
         val view: View = inflater.inflate(R.layout.fragment_lista_atendimento, container, false)
-
-        atendimentoViewModel = ViewModelProviders.of(this).get(AtendimentoViewModel::class.java)
-
-
-        list()
-
+        view.fab.setOnClickListener { view ->
+            val cadastroAtendimento = Intent(context, CadastroAtendimentoActivity::class.java)
+            startActivityForResult(cadastroAtendimento, FORMULARIO_REQUEST_CODE)
+        }
+        mostrarAtendimentos()
         return view
-    }
 
-    fun list(){
-
-    }
-
-    private var atendimentoObserver = Observer<List<Attendance>>{
 
     }
 
-    private fun preencherALista(atendimentos: List<Attendance>){
+    private fun mostrarAtendimentos(){
+         ViewModelProviders.of(this)
+                 .get(AtendimentoViewModel::class.java)
+                 .atendimentos
+                 .observe(this, Observer <List<Attendance>>{
+                  adapter?.setList(it!!)
+                     Log.i("inicio", "DASDADASDADDSDADAD"+it)
+                     adapter = AtendimentoListAdapter(context!!, atendimentos, {atendimento ->
+                        // val detalheActivity = Intent(this, DetalheActivity::class.java)
+                        // detalheActivity.putExtra("ATENDIMENTO", atendimento)
+                        // startActivity(detalheActivity)
+
+                     }, {})
+                     rvAtendimentos.adapter = adapter
+                     rvAtendimentos.layoutManager = LinearLayoutManager(context)
+                     rvAtendimentos.adapter.notifyDataSetChanged()
+                 })
 
     }
-
-
-
-
-
-
-
 
 }
