@@ -6,6 +6,8 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
 
     <application
         android:name=".MyApplication"
@@ -15,24 +17,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".view.splash.SplashActivity"
-      >
+        <activity android:name=".view.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".view.login.LoginActivity"
-          />
-        <activity
-            android:name=".view.register.RegisterActivity"
-            />
-        <activity
-            android:name=".view.main.HomeActivity"
-            />
+        <activity android:name=".view.login.LoginActivity" />
+        <activity android:name=".view.register.RegisterActivity" />
+        <activity android:name=".view.main.HomeActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -41,11 +35,9 @@
         <activity
             android:name=".view.main.map.MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity
-            android:name=".view.main.atendimento.detalhe.DetalheActivity"
-             />
-        <activity android:name=".view.main.atendimento.novo.CadastroAtendimentoActivity"
-          ></activity>
+        <activity android:name=".view.main.atendimento.detalhe.DetalheActivity" />
+        <activity android:name=".view.main.atendimento.novo.CadastroAtendimentoActivity" />
+        <activity android:name=".view.telefonar.TelefoneActivity"></activity>
     </application>
 
 </manifest>
