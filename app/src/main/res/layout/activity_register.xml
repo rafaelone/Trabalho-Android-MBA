@@ -9,11 +9,10 @@
 
     <TextView
         android:id="@+id/txNome"
-        style="@style/labelLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,11 +21,10 @@
 
     <EditText
         android:id="@+id/etNome"
-        style="@style/textFieldLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:ems="10"
         android:hint="Your name here"
@@ -38,11 +36,10 @@
 
     <TextView
         android:id="@+id/txEmail"
-        style="@style/labelLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:text="Email"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,27 +48,25 @@
 
     <EditText
         android:id="@+id/edEmail"
-        android:textColorHint="#ffffff"
-        style="@style/textFieldLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:ems="10"
         android:hint="Your email here"
         android:inputType="textPersonName"
+        android:textColorHint="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txEmail" />
 
     <TextView
         android:id="@+id/txTelefone"
-        style="@style/labelLogin"
         android:layout_width="0dp"
         android:layout_height="32dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:text="Telephone"
         app:layout_constraintEnd_toEndOf="parent"
@@ -80,23 +75,21 @@
 
     <EditText
         android:id="@+id/edTelefone"
-        android:textColorHint="#ffffff"
-        style="@style/textFieldLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:ems="10"
         android:hint="Your telephone here"
         android:inputType="textPersonName"
+        android:textColorHint="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txTelefone" />
 
     <TextView
         android:id="@+id/txSenha"
-        style="@style/labelLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -109,16 +102,15 @@
 
     <EditText
         android:id="@+id/edSenha"
-        style="@style/textFieldLogin"
-        android:textColorHint="#ffffff"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:ems="10"
         android:hint="Your pass here"
         android:inputType="textPassword"
+        android:textColorHint="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txSenha" />

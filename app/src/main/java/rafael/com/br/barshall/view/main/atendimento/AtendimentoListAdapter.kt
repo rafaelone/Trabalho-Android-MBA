@@ -63,7 +63,7 @@ class AtendimentoListAdapter(val context: Context,
             }
         }
 
-        }
     }
+}
 
 

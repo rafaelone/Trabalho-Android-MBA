@@ -10,10 +10,10 @@ interface AtendimentoDAO{
     @Insert
     fun inserir(atendimento: Attendance)
 
-    //@Query("SELECT * FROM Attendance WHERE id_cliente = :id")
-   // fun listarAtendimentos(id: Int): LiveData<List<Attendance>>
-    @Query("SELECT * FROM  Attendance")
-    fun listarAtendimentos(): LiveData<List<Attendance>>
+    @Query("SELECT * FROM Attendance WHERE id_cliente = :id")
+   fun listarAtendimentos(id: Int): LiveData<List<Attendance>>
+   // @Query("SELECT * FROM  Attendance")
+   // fun listarAtendimentos(): LiveData<List<Attendance>>
 
     @Update
     fun atualizar(atendimento: Attendance)

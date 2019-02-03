@@ -6,6 +6,7 @@ import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_home.*
 import rafael.com.br.barshall.R
+import rafael.com.br.barshall.context.AppCtx
 import rafael.com.br.barshall.view.main.atendimento.ListaAtendimentoFragment
 import rafael.com.br.barshall.view.main.info.InfoFragment
 import rafael.com.br.barshall.view.main.map.MapsActivity
@@ -38,7 +39,7 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-
+        AppCtx.getInstance().initialize(this)
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         navigation.selectedItemId = R.id.navigation_home
     }
@@ -63,21 +64,9 @@ class HomeActivity : AppCompatActivity() {
         transaction.commit()
     }
 
-    fun loadMyAttendance(){
-        val transaction = manager.beginTransaction()
-        val fragment = ListaAtendimentoFragment()
-        transaction.replace(R.id.fragmentHolder, fragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
-    }
 
     fun loadMapFragment(){
 
-        /*val transaction = manager.beginTransaction()
-        val fragment = MapsActivity()
-        transaction.replace(R.id.fragmentHolder, fragment)
-        transaction.addToBackStack(null)
-        transaction.commit()*/
 
         val mapIntent = Intent(this, MapsActivity::class.java)
         startActivity(mapIntent)

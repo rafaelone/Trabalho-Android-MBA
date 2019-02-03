@@ -14,9 +14,9 @@ class AdapterFuncionario(val context: Context, var listServico: Array<String>): 
         txt.gravity = Gravity.LEFT
         txt.setPadding(16, 16, 16, 16   )
         txt.textSize = 10f
-        txt.setBackgroundColor(Color.parseColor("#000000"))
+       // txt.setBackgroundColor(Color.parseColor("#000000"))
         txt.text = listServico[i]
-        txt.setTextColor(Color.parseColor("#FFFFFF"))
+        txt.setTextColor(Color.parseColor("#000000"))
         return txt
     }
 
@@ -41,9 +41,9 @@ class AdapterFuncionario(val context: Context, var listServico: Array<String>): 
         txt.gravity = Gravity.LEFT
         txt.setPadding(16, 16, 16, 16   )
         txt.textSize = 10f
-        txt.setBackgroundColor(Color.parseColor("#000000"))
+       // txt.setBackgroundColor(Color.parseColor("#000000"))
         txt.text = listServico[i]
-        txt.setTextColor(Color.parseColor("#FFFFFF"))
+        txt.setTextColor(Color.parseColor("#000000"))
         return txt
     }
 

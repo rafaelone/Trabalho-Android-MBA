@@ -35,42 +35,17 @@ class CadastroAtendimentoActivity : AppCompatActivity() {
         val sharedPreferences = this.getSharedPreferences("myapp", Context.MODE_PRIVATE)
         val id_cliente = sharedPreferences.getString("id", "")
 
+        //val sdf = SimpleDateFormat("dd/MM/yyyy")
+       // sdf.format(tvData.text.toString())
+
 
         btnRegistroAtendimento.setOnClickListener{
-        // Log.i("adsadasdasd",""+servicoSelecionado)
-         //Log.i("adsadasdasd",""+funcionarioSelecionado)
-
             val db = BancoDeDados.getDatabase(this)
-            val atendimento = Attendance( id_cliente.toString(), "", servicoSelecionado.toString(), funcionarioSelecionado.toString())
+            val atendimento = Attendance( id_cliente.toString(), tvSchedule.text.toString(), servicoSelecionado.toString(), funcionarioSelecionado.toString())
            //if(atendimento.data != "")
               InsertAsyncTask(db!!).execute(atendimento)
 
         }
-
-        val dateSetListener = object : DatePickerDialog.OnDateSetListener {
-            override fun onDateSet(view: DatePicker, year: Int, monthOfYear: Int,
-                                   dayOfMonth: Int) {
-
-                cal.set(Calendar.YEAR, year)
-                cal.set(Calendar.MONTH, monthOfYear)
-                cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-
-                updateDateInView()
-            }
-        }
-
-        tvData.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(view: View) {
-                DatePickerDialog(this@CadastroAtendimentoActivity,
-                        dateSetListener,
-                        cal.get(Calendar.YEAR),
-                        cal.get(Calendar.MONTH),
-                        cal.get(Calendar.DAY_OF_MONTH)).show()
-
-            }
-
-        })
-
 
     }
 
@@ -78,8 +53,6 @@ class CadastroAtendimentoActivity : AppCompatActivity() {
             Void, String>(){
         private val db: BancoDeDados = appDatabase
         override fun doInBackground(vararg params: Attendance): String {
-            Log.i("UESHUEHUHSUHES", ""+params[0])
-            Log.i("UESHUEHUHSUHES", ""+params)
            db.atendimentoDAO().inserir(params[0])
             finish()
            return ""
@@ -90,11 +63,6 @@ class CadastroAtendimentoActivity : AppCompatActivity() {
     }
 
 
-    private fun updateDateInView() {
-        val sdf = SimpleDateFormat("dd/M/yyyy")
-        val currentDate = sdf.format(cal.time)
-        tvData.text = currentDate
-    }
 
         fun carregarSpinnerFuncionario(){
         var str_funcionario = resources.getStringArray(R.array.str_funcionario)

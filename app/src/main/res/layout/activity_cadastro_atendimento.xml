@@ -7,8 +7,9 @@
     tools:context=".view.main.atendimento.novo.CadastroAtendimentoActivity">
 
     <TextView
-        style="@style/hallsApp"
         android:id="@+id/txNovo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
@@ -19,7 +20,6 @@
 
     <TextView
         android:id="@+id/tvService"
-        style="@style/labelCadastroAtendimento"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -32,7 +32,8 @@
 
     <Spinner
         android:id="@+id/SpService"
-        style="@style/textFieldLogin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
@@ -44,7 +45,8 @@
 
     <TextView
         android:id="@+id/tvFuncionario"
-        style="@style/labelCadastroAtendimento"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
@@ -55,7 +57,8 @@
 
     <Spinner
         android:id="@+id/SpFuncionario"
-        style="@style/textFieldLogin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
@@ -65,7 +68,8 @@
 
     <TextView
         android:id="@+id/tvSchedule"
-        style="@style/labelCadastroAtendimento"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
@@ -74,13 +78,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SpFuncionario" />
 
-    <TextView
+    <EditText
         android:id="@+id/tvData"
-        style="@style/labelCadastroAtendimento"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:text="__/__/____"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="29dp"
+        android:hint="__/__/____"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvSchedule" />
@@ -90,7 +95,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/botao_login_screen"
         android:text="Register"

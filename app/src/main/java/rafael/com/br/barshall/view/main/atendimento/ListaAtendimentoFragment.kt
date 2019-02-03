@@ -18,6 +18,7 @@ import kotlinx.android.synthetic.main.fragment_lista_atendimento.*
 import kotlinx.android.synthetic.main.fragment_lista_atendimento.view.*
 
 import rafael.com.br.barshall.R
+import rafael.com.br.barshall.context.AppCtx
 import rafael.com.br.barshall.model.Attendance
 
 import rafael.com.br.barshall.view.main.atendimento.detalhe.DetalheActivity
@@ -41,19 +42,60 @@ class ListaAtendimentoFragment : Fragment() {
             val cadastroAtendimento = Intent(context, CadastroAtendimentoActivity::class.java)
             startActivityForResult(cadastroAtendimento, FORMULARIO_REQUEST_CODE)
         }
-        mostrarAtendimentos()
+        atendimentoViewModel = ViewModelProviders.of(this).get(AtendimentoViewModel::class.java)
+        atendimentoViewModel.atendimentos.observe(this, atendimentoObserver)
+
         return view
 
 
     }
 
-    private fun mostrarAtendimentos(){
+
+    private var atendimentoObserver = Observer<List<Attendance>>{
+
+        preencherALista(it!!)
+    }
+
+    private fun preencherALista(atendimentos: List<Attendance>){
+       /* adapter = AtendimentoListAdapter(atendimentos)
+        adapter?.setList(atendimentos)
+        rvAtendimentos.adapter = adapter
+        rvAtendimentos.layoutManager = LinearLayoutManager(requireContext())
+        rvAtendimentos.adapter.notifyDataSetChanged()*/
+
+
+        adapter = AtendimentoListAdapter(context!!, atendimentos, {atendimento ->
+             val detalheActivity = Intent(context, DetalheActivity::class.java)
+            Log.i("ADA´TER", ""+atendimento)
+             //detalheActivity.putExtra("ATENDIMENTO", atendimento)
+             //startActivity(detalheActivity)
+        },{})
+        rvAtendimentos.adapter = adapter
+        rvAtendimentos.layoutManager = LinearLayoutManager(context)
+        rvAtendimentos.adapter.notifyDataSetChanged()
+
+
+
+    }
+
+    /*private fun mostrarAtendimentos(){
+        ViewModelProviders.of(this)
+                .get(atendimentoViewModel::class.java)
+                .atendimentos
+                .observe(this, Observer <List<Attendance>>{
+                    adapter?.setList(atendimentos!!)
+                    rvAtendimentos.adapter.notifyDataSetChanged()
+                })
+    }*/
+
+/*    private fun mostrarAtendimentos(){
          ViewModelProviders.of(this)
                  .get(AtendimentoViewModel::class.java)
                  .atendimentos
                  .observe(this, Observer <List<Attendance>>{
+
                   adapter?.setList(it!!)
-                     Log.i("inicio", "DASDADASDADDSDADAD"+it)
+
                      adapter = AtendimentoListAdapter(context!!, atendimentos, {atendimento ->
                         // val detalheActivity = Intent(this, DetalheActivity::class.java)
                         // detalheActivity.putExtra("ATENDIMENTO", atendimento)
@@ -66,5 +108,5 @@ class ListaAtendimentoFragment : Fragment() {
                  })
 
     }
-
+*/
 }
