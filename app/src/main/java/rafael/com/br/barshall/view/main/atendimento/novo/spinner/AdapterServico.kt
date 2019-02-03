@@ -33,6 +33,10 @@ class AdapterServico(val context: Context, var listServico: Array<String>): Base
         return listServico[position]
     }
 
+    fun getServicoNome(nome: String): Any{
+        return listServico.indexOf(nome)
+    }
+
     override fun getCount(): Int {
         return listServico.size
     }

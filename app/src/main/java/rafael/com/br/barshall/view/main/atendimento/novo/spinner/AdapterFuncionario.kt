@@ -8,20 +8,20 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 
-class AdapterFuncionario(val context: Context, var listServico: Array<String>): BaseAdapter(){
+class AdapterFuncionario(val context: Context, var listFuncionario: Array<String>): BaseAdapter(){
     override fun getView(i: Int, p1: View?, p2: ViewGroup?): View {
         val txt = TextView(context)
         txt.gravity = Gravity.LEFT
         txt.setPadding(16, 16, 16, 16   )
         txt.textSize = 10f
        // txt.setBackgroundColor(Color.parseColor("#000000"))
-        txt.text = listServico[i]
+        txt.text = listFuncionario[i]
         txt.setTextColor(Color.parseColor("#000000"))
         return txt
     }
 
     override fun getItem(i: Int): Any {
-        return listServico[i]
+        return listFuncionario[i]
     }
     override fun getItemId(i: Int): Long {
         return i.toLong()
@@ -29,11 +29,15 @@ class AdapterFuncionario(val context: Context, var listServico: Array<String>): 
 
     fun getMyItemId(position: Int): Any{
 
-        return listServico[position]
+        return listFuncionario[position]
+    }
+
+    fun getFuncionarioByName(nome: String): Any{
+        return listFuncionario.indexOf(nome)
     }
 
     override fun getCount(): Int {
-        return listServico.size
+        return listFuncionario.size
     }
 
     override fun getDropDownView(i: Int, convertView: View?, parent: ViewGroup?): View {
@@ -42,7 +46,7 @@ class AdapterFuncionario(val context: Context, var listServico: Array<String>): 
         txt.setPadding(16, 16, 16, 16   )
         txt.textSize = 10f
        // txt.setBackgroundColor(Color.parseColor("#000000"))
-        txt.text = listServico[i]
+        txt.text = listFuncionario[i]
         txt.setTextColor(Color.parseColor("#000000"))
         return txt
     }

@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.activity_cadastro_atendimento.*
 import rafael.com.br.barshall.R
 import rafael.com.br.barshall.dao.BancoDeDados
 import rafael.com.br.barshall.model.Attendance
+import rafael.com.br.barshall.view.main.atendimento.novo.spinner.AdapterFuncionario
 import rafael.com.br.barshall.view.main.atendimento.novo.spinner.AdapterServico
 import java.text.SimpleDateFormat
 import java.util.*
@@ -35,17 +36,23 @@ class CadastroAtendimentoActivity : AppCompatActivity() {
         val sharedPreferences = this.getSharedPreferences("myapp", Context.MODE_PRIVATE)
         val id_cliente = sharedPreferences.getString("id", "")
 
-        //val sdf = SimpleDateFormat("dd/MM/yyyy")
-       // sdf.format(tvData.text.toString())
+        val atendimentoAtualizar = intent.getParcelableExtra<Attendance>("ATUALIZAR")
+        if(atendimentoAtualizar == null){
+            btnRegistroAtendimento.setOnClickListener{
+                val db = BancoDeDados.getDatabase(this)
+                val atendimento = Attendance(0,id_cliente.toString(), tvData.text.toString(), servicoSelecionado.toString(), funcionarioSelecionado.toString() )
 
+                //if(atendimento.data != "")
+                InsertAsyncTask(db!!).execute(atendimento)
 
-        btnRegistroAtendimento.setOnClickListener{
-            val db = BancoDeDados.getDatabase(this)
-            val atendimento = Attendance( id_cliente.toString(), tvSchedule.text.toString(), servicoSelecionado.toString(), funcionarioSelecionado.toString())
-           //if(atendimento.data != "")
-              InsertAsyncTask(db!!).execute(atendimento)
+            }
+        } else {
+            btnRegistroAtendimento.text = "Update"
+
 
         }
+
+
 
     }
 
@@ -68,8 +75,15 @@ class CadastroAtendimentoActivity : AppCompatActivity() {
         var str_funcionario = resources.getStringArray(R.array.str_funcionario)
         val view = this;
         spFuncionario = view.findViewById(R.id.SpFuncionario)
-        var spinnerAdapter: AdapterServico = AdapterServico(this, str_funcionario)
+        var spinnerAdapter: AdapterFuncionario = AdapterFuncionario(this, str_funcionario)
         spFuncionario.adapter = spinnerAdapter
+            val atendimentoAtualizar = intent.getParcelableExtra<Attendance>("ATUALIZAR")
+
+            if(atendimentoAtualizar != null){
+                var funcionarioIntent = spinnerAdapter.getFuncionarioByName(atendimentoAtualizar.funcionario.toString())
+                spFuncionario.setSelection(funcionarioIntent.toString().toInt())
+
+            }
 
         spFuncionario.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
 
@@ -90,6 +104,14 @@ class CadastroAtendimentoActivity : AppCompatActivity() {
         spServico = view.findViewById(R.id.SpService)
         var spinnerAdapter: AdapterServico = AdapterServico(this, str_servico)
         spServico.adapter = spinnerAdapter
+
+        val atendimentoAtualizar = intent.getParcelableExtra<Attendance>("ATUALIZAR")
+
+        if(atendimentoAtualizar != null){
+            var servicoIntent = spinnerAdapter.getServicoNome(atendimentoAtualizar.servico.toString())
+            spServico.setSelection(servicoIntent.toString().toInt())
+
+        }
 
         spServico.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
 

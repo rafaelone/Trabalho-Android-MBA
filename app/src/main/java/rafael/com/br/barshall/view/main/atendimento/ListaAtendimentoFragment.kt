@@ -23,6 +23,7 @@ import rafael.com.br.barshall.model.Attendance
 
 import rafael.com.br.barshall.view.main.atendimento.detalhe.DetalheActivity
 import rafael.com.br.barshall.view.main.atendimento.novo.CadastroAtendimentoActivity
+import java.io.Serializable
 import java.lang.Float.parseFloat
 
 
@@ -57,18 +58,12 @@ class ListaAtendimentoFragment : Fragment() {
     }
 
     private fun preencherALista(atendimentos: List<Attendance>){
-       /* adapter = AtendimentoListAdapter(atendimentos)
-        adapter?.setList(atendimentos)
-        rvAtendimentos.adapter = adapter
-        rvAtendimentos.layoutManager = LinearLayoutManager(requireContext())
-        rvAtendimentos.adapter.notifyDataSetChanged()*/
 
-
+    Log.i("ATENDIMENTO", ""+atendimentos)
         adapter = AtendimentoListAdapter(context!!, atendimentos, {atendimento ->
              val detalheActivity = Intent(context, DetalheActivity::class.java)
-            Log.i("ADA´TER", ""+atendimento)
-             //detalheActivity.putExtra("ATENDIMENTO", atendimento)
-             //startActivity(detalheActivity)
+           detalheActivity.putExtra("ATENDIMENTO", atendimento)
+             startActivity(detalheActivity)
         },{})
         rvAtendimentos.adapter = adapter
         rvAtendimentos.layoutManager = LinearLayoutManager(context)
@@ -78,35 +73,5 @@ class ListaAtendimentoFragment : Fragment() {
 
     }
 
-    /*private fun mostrarAtendimentos(){
-        ViewModelProviders.of(this)
-                .get(atendimentoViewModel::class.java)
-                .atendimentos
-                .observe(this, Observer <List<Attendance>>{
-                    adapter?.setList(atendimentos!!)
-                    rvAtendimentos.adapter.notifyDataSetChanged()
-                })
-    }*/
 
-/*    private fun mostrarAtendimentos(){
-         ViewModelProviders.of(this)
-                 .get(AtendimentoViewModel::class.java)
-                 .atendimentos
-                 .observe(this, Observer <List<Attendance>>{
-
-                  adapter?.setList(it!!)
-
-                     adapter = AtendimentoListAdapter(context!!, atendimentos, {atendimento ->
-                        // val detalheActivity = Intent(this, DetalheActivity::class.java)
-                        // detalheActivity.putExtra("ATENDIMENTO", atendimento)
-                        // startActivity(detalheActivity)
-
-                     }, {})
-                     rvAtendimentos.adapter = adapter
-                     rvAtendimentos.layoutManager = LinearLayoutManager(context)
-                     rvAtendimentos.adapter.notifyDataSetChanged()
-                 })
-
-    }
-*/
 }
