@@ -1,7 +1,9 @@
 package rafael.com.br.barshall.view.main
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
@@ -14,6 +16,7 @@ import rafael.com.br.barshall.view.main.atendimento.ListaAtendimentoFragment
 import rafael.com.br.barshall.view.main.info.InfoFragment
 import rafael.com.br.barshall.view.main.map.MapsActivity
 import rafael.com.br.barshall.view.telefonar.TelefoneActivity
+import java.io.File
 
 class HomeActivity : AppCompatActivity() {
 
@@ -59,10 +62,29 @@ class HomeActivity : AppCompatActivity() {
                 val intent = Intent(this, TelefoneActivity::class.java)
                 startActivity(intent)
             }
+            R.id.shared -> {
+                compartilhar()
+            }
         }
         return true
     }
 
+    private fun compartilhar(){
+
+
+        var intent = Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.setPackage("com.whatsapp");
+        intent.putExtra(Intent.EXTRA_TEXT, "Hey I'm using this app to set service hours in the beauty salon, use you too");
+
+        try{
+            startActivity(intent)
+        }catch (ex:Throwable) {
+
+            Toast.makeText(getApplicationContext(),"Whatsap not installed",Toast.LENGTH_SHORT).show();
+
+        }
+    }
 
 
     fun loadInfoFragment(){

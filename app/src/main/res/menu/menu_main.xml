@@ -8,4 +8,11 @@
         android:icon="@drawable/icone_telefone"
         app:showAsAction="always"
         />
+    <item
+        android:id="@+id/shared"
+        android:orderInCategory="100"
+        android:title="Shared"
+        android:icon="@drawable/icone_compartilhar"
+        app:showAsAction="always"
+        />
 </menu>
