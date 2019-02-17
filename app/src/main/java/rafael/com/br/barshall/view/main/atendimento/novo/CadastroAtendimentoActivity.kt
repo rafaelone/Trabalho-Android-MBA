@@ -48,12 +48,33 @@ class CadastroAtendimentoActivity : AppCompatActivity() {
             }
         } else {
             btnRegistroAtendimento.text = "Update"
-
+            val atendimentoAtualizar = intent.getParcelableExtra<Attendance>("ATUALIZAR")
+            tvData.setText(atendimentoAtualizar.data.toString())
+            btnRegistroAtendimento.setOnClickListener {
+                val db = BancoDeDados.getDatabase(this)
+                val atendimento = Attendance(atendimentoAtualizar.id, id_cliente.toString(), tvData.text.toString(), servicoSelecionado, funcionarioSelecionado)
+                UpdateAsyncTask(db!!).execute(atendimento)
+            }
 
         }
 
 
 
+    }
+
+    private inner class UpdateAsyncTask internal constructor(appDatabase: BancoDeDados): AsyncTask<Attendance, Void,
+            String>(){
+        private val db: BancoDeDados = appDatabase
+        override fun doInBackground(vararg params: Attendance?): String {
+            var id = params[0]?.id
+           var funcionario = params[0]?.funcionario
+            var servico = params[0]?.servico
+            var data = params[0]?.data
+            var id_cliente = params[0]?.id_cliente
+            db.atendimentoDAO().atualizar(id.toString().toInt(), id_cliente.toString(), servico.toString(), funcionario.toString(), data.toString())
+            finish()
+            return ""
+        }
     }
 
     private inner class InsertAsyncTask internal constructor(appDatabase: BancoDeDados): AsyncTask<Attendance,
@@ -63,15 +84,11 @@ class CadastroAtendimentoActivity : AppCompatActivity() {
            db.atendimentoDAO().inserir(params[0])
             finish()
            return ""
-
         }
-
-
     }
 
 
-
-        fun carregarSpinnerFuncionario(){
+    fun carregarSpinnerFuncionario(){
         var str_funcionario = resources.getStringArray(R.array.str_funcionario)
         val view = this;
         spFuncionario = view.findViewById(R.id.SpFuncionario)

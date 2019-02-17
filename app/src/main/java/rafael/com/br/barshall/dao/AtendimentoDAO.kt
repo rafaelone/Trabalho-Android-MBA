@@ -12,12 +12,10 @@ interface AtendimentoDAO{
 
     @Query("SELECT * FROM Attendance WHERE id_cliente = :id")
    fun listarAtendimentos(id: Int): LiveData<List<Attendance>>
-   // @Query("SELECT * FROM  Attendance")
-   // fun listarAtendimentos(): LiveData<List<Attendance>>
 
-    @Update
-    fun atualizar(atendimento: Attendance)
-
+    @Query("UPDATE Attendance set id_cliente = :id_cliente, data = :data, servico = :servico, funcionario = :funcionario where id = :id" )
+   // fun atualizar(data:String, servico: String, funcionario: String, id: Int)
+      fun atualizar(id: Int, id_cliente: String, servico: String, funcionario: String, data: String)
     @Delete
     fun apagar(atendimento: Attendance)
 
