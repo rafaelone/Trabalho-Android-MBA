@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "993184044368",
+    "firebase_url": "https://barshall-8eeba.firebaseio.com",
+    "project_id": "barshall-8eeba",
+    "storage_bucket": "barshall-8eeba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:993184044368:android:432a8d1817e44bad",
+        "android_client_info": {
+          "package_name": "rafael.com.br.barshall"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "993184044368-1htc39ft3t6phohnsfbjcstlkur558rl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "rafael.com.br.barshall",
+            "certificate_hash": "beb224284730e1ec2ea6857c4e52af0c0438cd6c"
+          }
+        },
+        {
+          "client_id": "993184044368-qbgaeph2dh2cf5ng0i8epibdojpe7ea5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "rafael.com.br.barshall",
+            "certificate_hash": "c269c3ff79baae81fadfeedc4152134c00019e3b"
+          }
+        },
+        {
+          "client_id": "993184044368-rpmh132906lmlm5gs9jhcp7fngnoan2f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgyjkmSfyf0Dw9Ii3a6QONkU0I3idZpvI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "993184044368-rpmh132906lmlm5gs9jhcp7fngnoan2f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
