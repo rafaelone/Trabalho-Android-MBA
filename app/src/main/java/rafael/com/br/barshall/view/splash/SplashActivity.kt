@@ -32,7 +32,8 @@ class SplashActivity : AppCompatActivity() {
             val sharedPreferences = getSharedPreferences("myapp", Context.MODE_PRIVATE)
             val nome = sharedPreferences.getString("nome", "")
             val id = sharedPreferences.getString("id", "")
-            if (nome != "" && id != null) {
+            val check = sharedPreferences.getString("check", "")
+            if (nome != "" && id != null && check == "true") {
                 val homeIntent = Intent(this, HomeActivity::class.java)
                 startActivity(homeIntent)
                 finish()

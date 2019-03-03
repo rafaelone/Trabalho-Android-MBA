@@ -23,12 +23,23 @@ class RegisterActivity : AppCompatActivity() {
         registerViewModel.responseStatus.observe(this, responseStatusObserver)
 
         btRegistro.setOnClickListener {
-            registerViewModel.newClient(
-                    etNome.text.toString(),
-                    edSenha.text.toString(),
-                    edEmail.text.toString(),
-                    edTelefone.text.toString()
-            )
+
+            if(etNome.text.trim().toString().length < 3){
+                Toast.makeText(this, "Invalid name", Toast.LENGTH_SHORT).show()
+            }else if (edEmail.text.trim().toString().length < 5){
+                Toast.makeText(this, "Invalid e-mail", Toast.LENGTH_SHORT).show()
+            }else if( edTelefone.text.trim().toString().length < 8) {
+                Toast.makeText(this, "Invalid telephone", Toast.LENGTH_SHORT).show()
+            }else if(edSenha.text.trim().toString().length < 2){
+                Toast.makeText(this, "Invalid password", Toast.LENGTH_SHORT).show() }
+            else{
+                registerViewModel.newClient(
+                        etNome.text.toString(),
+                        edSenha.text.toString(),
+                        edEmail.text.toString(),
+                        edTelefone.text.toString()
+                )
+            }
         }
 
     }

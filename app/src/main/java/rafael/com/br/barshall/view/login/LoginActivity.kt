@@ -50,13 +50,18 @@ class LoginActivity : AppCompatActivity() {
     private var responseClienteObserver = Observer<Client> {
         if (it !== null) {
 
-
+            val sharedPreferences = getSharedPreferences("myapp", Context.MODE_PRIVATE)
+            val editor  = sharedPreferences.edit()
             Log.i("logcat", ": "+ckConectado.isChecked)
             if(ckConectado.isChecked == true){
-                val sharedPreferences = getSharedPreferences("myapp", Context.MODE_PRIVATE)
-                val editor  = sharedPreferences.edit()
                 editor.putString("id", it.id.toString())
                 editor.putString("nome", it.nome.toString())
+                editor.putString("check", "true")
+                editor.apply()
+            }else{
+                editor.putString("id", it.id.toString())
+                editor.putString("nome", it.nome.toString())
+                editor.putString("check", "false")
                 editor.apply()
             }
 
