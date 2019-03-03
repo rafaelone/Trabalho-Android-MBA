@@ -77,11 +77,12 @@ class CadastroAtendimentoActivity : AppCompatActivity() {
         }
     }
 
-    private inner class InsertAsyncTask internal constructor(appDatabase: BancoDeDados): AsyncTask<Attendance,
+
+        private inner class InsertAsyncTask internal constructor(appDatabase: BancoDeDados): AsyncTask<Attendance,
             Void, String>(){
         private val db: BancoDeDados = appDatabase
         override fun doInBackground(vararg params: Attendance): String {
-           db.atendimentoDAO().inserir(params[0])
+            db.atendimentoDAO().inserir(params[0])
             finish()
            return ""
         }

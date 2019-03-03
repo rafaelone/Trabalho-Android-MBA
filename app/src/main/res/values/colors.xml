@@ -5,6 +5,7 @@
     <color name="colorAccent">#fdfdfd</color>
     <color name="mainBackgroundColor">#000000</color>
     <color name="labelsColor">#DB9370</color>
+    <color name="nomeApp" >#FFD700</color>
     <color name="bordaCardView">#ffa500</color>
 
 </resources>

@@ -17,4 +17,53 @@
     <style name="FullScreen.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="FullScreen.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="tamanhoPadrao">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!-- TELA DE LOGIN -->
+    <style name="nomeApp" parent="tamanhoPadrao">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:textColor">@color/nomeApp</item>
+    </style>
+
+    <style name="botaoTelaLogin">
+        <item name="android:background">@drawable/botao_login_screen</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="checkbox" parent="tamanhoPadrao">
+        <item name="android:textColor">#FFF</item>
+        <item name="android:buttonTint">@color/nomeApp</item>
+        <item name="android:checked">false</item>
+    </style>
+    <!-- TELA DE LOGIN -->
+
+    <!-- LABELS -->
+    <style name="labelsApp" parent="tamanhoPadrao">
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginTop">32dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/labelsColor</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <!-- LABELS -->
+
+    <!-- EDITTEXT -->
+    <style name="edtApp" parent="tamanhoPadrao">
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginTop">32dp</item>
+        <item name="android:textColor">#FFF</item>
+        <item name="android:background">@drawable/rounded_edittext</item>
+        <item name="android:ems">10</item>
+    </style>
+
+
 </resources>
