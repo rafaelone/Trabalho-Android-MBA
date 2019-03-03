@@ -16,7 +16,7 @@ interface AtendimentoDAO{
     @Query("UPDATE Attendance set id_cliente = :id_cliente, data = :data, servico = :servico, funcionario = :funcionario where id = :id" )
    // fun atualizar(data:String, servico: String, funcionario: String, id: Int)
       fun atualizar(id: Int, id_cliente: String, servico: String, funcionario: String, data: String)
-    @Delete
-    fun apagar(atendimento: Attendance)
+    @Query("DELETE FROM Attendance WHERE id = :id")
+    fun apagar(id: Int)
 
 }

@@ -45,16 +45,15 @@
             app:layout_constraintTop_toBottomOf="@+id/tvServico"
             tools:text="Nome Funcionario" />
 
-        <TextView
-            android:id="@+id/tvPreco"
-            android:layout_width="0dp"
+        <Button
+            android:id="@+id/btnDeletarAtendimento"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/cardview_dark_background"
-            app:layout_constraintEnd_toEndOf="@+id/tvServico"
-            app:layout_constraintStart_toStartOf="@+id/tvFuncionario"
-            app:layout_constraintTop_toBottomOf="@+id/tvFuncionario"
-            tools:text="Preco" />
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="16dp"
+            android:text="Deletar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvFuncionario" />
 
     </android.support.constraint.ConstraintLayout>
 

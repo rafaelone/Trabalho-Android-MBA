@@ -58,7 +58,7 @@ class AtendimentoListAdapter(val context: Context,
 
             //setOnClickListener{listener(atendimento)}
             setOnClickListener {
-
+                listenerDelete(atendimento)
                 listener(atendimento)
             }
         }
