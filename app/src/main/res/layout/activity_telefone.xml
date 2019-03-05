@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/mainBackgroundColor"
     android:layout_height="match_parent"
     tools:context=".view.telefonar.TelefoneActivity">
 
     <TextView
         android:id="@+id/tvCall"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+       style="@style/labelsApp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
@@ -20,8 +20,7 @@
 
     <EditText
         android:id="@+id/edNumberCall"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/edtApp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
@@ -34,8 +33,7 @@
 
     <Button
         android:id="@+id/btnTurnOn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/botaoTelaLogin"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"

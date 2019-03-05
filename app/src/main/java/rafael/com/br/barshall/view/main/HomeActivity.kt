@@ -1,5 +1,6 @@
 package rafael.com.br.barshall.view.main
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -12,6 +13,7 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_home.*
 import rafael.com.br.barshall.R
 import rafael.com.br.barshall.context.AppCtx
+import rafael.com.br.barshall.view.login.LoginActivity
 import rafael.com.br.barshall.view.main.atendimento.ListaAtendimentoFragment
 import rafael.com.br.barshall.view.main.info.InfoFragment
 import rafael.com.br.barshall.view.main.map.MapsActivity
@@ -65,8 +67,24 @@ class HomeActivity : AppCompatActivity() {
             R.id.shared -> {
                 compartilhar()
             }
+            R.id.logout -> {
+                logout()
+            }
+
         }
         return true
+    }
+
+    private fun logout(){
+        val sharedPreferences = getSharedPreferences("myapp", Context.MODE_PRIVATE)
+        val editor  = sharedPreferences.edit()
+        editor.remove("id")
+        editor.remove("nome")
+        editor.remove("check")
+        Toast.makeText(this, "Logout with success", Toast.LENGTH_SHORT).show()
+        val LoginIntent = Intent(this, LoginActivity::class.java)
+        startActivity(LoginIntent)
+        finish()
     }
 
     private fun compartilhar(){
@@ -80,15 +98,12 @@ class HomeActivity : AppCompatActivity() {
         try{
             startActivity(intent)
         }catch (ex:Throwable) {
-
             Toast.makeText(getApplicationContext(),"Whatsap not installed",Toast.LENGTH_SHORT).show();
-
         }
     }
 
 
     fun loadInfoFragment(){
-
         val transaction = manager.beginTransaction()
         val fragment = InfoFragment()
         transaction.replace(R.id.fragmentHolder, fragment)
@@ -97,7 +112,6 @@ class HomeActivity : AppCompatActivity() {
     }
 
     fun loadHomeFragment(){
-
         val transaction = manager.beginTransaction()
         val fragment = ListaAtendimentoFragment()
         transaction.replace(R.id.fragmentHolder, fragment)
@@ -107,11 +121,8 @@ class HomeActivity : AppCompatActivity() {
 
 
     fun loadMapFragment(){
-
-
         val mapIntent = Intent(this, MapsActivity::class.java)
         startActivity(mapIntent)
-
 
     }
 

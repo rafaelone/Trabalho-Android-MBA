@@ -10,6 +10,7 @@ import android.os.Handler
 import android.view.animation.AnimationUtils
 import kotlinx.android.synthetic.main.activity_splash.*
 import rafael.com.br.barshall.R
+import rafael.com.br.barshall.R.id.containerLoading
 import rafael.com.br.barshall.model.ResponseStatus
 import rafael.com.br.barshall.view.login.LoginActivity
 import rafael.com.br.barshall.view.main.HomeActivity
@@ -30,7 +31,9 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private var statusObserver = Observer<ResponseStatus> {
+
         if (it?.success == true) {
+
             val sharedPreferences = getSharedPreferences("myapp", Context.MODE_PRIVATE)
             val nome = sharedPreferences.getString("nome", "")
             val id = sharedPreferences.getString("id", "")
@@ -40,22 +43,20 @@ class SplashActivity : AppCompatActivity() {
                 startActivity(homeIntent)
                 finish()
             } else {
+                val anim = AnimationUtils.loadAnimation(this, R.anim.animacao_splash)
+                anim.reset()
+                imgLogo.clearAnimation()
+                imgLogo.startAnimation(anim)
                 loading()
             }
 
-        }else{
-            val anim = AnimationUtils.loadAnimation(this, R.anim.animacao_splash)
-            anim.reset()
-            imgLogo.clearAnimation()
-            imgLogo.startAnimation(anim)
-            loading()
         }
 
     }
 
     private fun loading() {
         Handler().postDelayed({
-            callNextActivity()
+            //callNextActivity()
         }, 2000)
     }
 
