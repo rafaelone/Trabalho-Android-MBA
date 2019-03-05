@@ -64,6 +64,16 @@
         <item name="android:background">@drawable/rounded_edittext</item>
         <item name="android:ems">10</item>
     </style>
+    <!-- EDITTEXT -->
 
+    <!-- ACITIVITY DETALHE -->
+    <style name="detalhe">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/nomeApp</item>
+        <item name="android:layout_marginStart">32dp</item>
+        <item name="android:layout_marginEnd">32dp</item>
+    </style>
+    <!-- ACITIVITY DETALHE -->
 
 </resources>

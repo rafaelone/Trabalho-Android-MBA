@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/mainBackgroundColor"
     tools:context=".view.main.atendimento.detalhe.DetalheActivity">
 
     <TextView
         android:id="@+id/tvDetails"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/labelsApp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
@@ -20,11 +20,8 @@
 
     <TextView
         android:id="@+id/lbName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        style="@style/detalhe"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
         android:text="Employe:"
         app:layout_constraintEnd_toStartOf="@+id/lbNameEmployee"
         app:layout_constraintHorizontal_bias="0.5"
@@ -33,10 +30,7 @@
 
     <TextView
         android:id="@+id/lbNameEmployee"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
+        style="@style/detalhe"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -45,11 +39,8 @@
 
     <TextView
         android:id="@+id/lbService"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        style="@style/detalhe"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
         android:text="Service:"
         app:layout_constraintEnd_toStartOf="@+id/lbServiceName"
         app:layout_constraintHorizontal_bias="0.5"
@@ -58,10 +49,7 @@
 
     <TextView
         android:id="@+id/lbServiceName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
+        style="@style/detalhe"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -70,11 +58,8 @@
 
     <TextView
         android:id="@+id/lbDate"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="31dp"
-        android:layout_marginEnd="32dp"
+        style="@style/detalhe"
+        android:layout_marginTop="24dp"
         android:text="Date:"
         app:layout_constraintEnd_toStartOf="@+id/lbDateAttendance"
         app:layout_constraintHorizontal_bias="0.5"
@@ -83,10 +68,7 @@
 
     <TextView
         android:id="@+id/lbDateAttendance"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
+        style="@style/detalhe"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -95,10 +77,9 @@
 
     <Button
         android:id="@+id/btnAtualizar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/botaoTelaLogin"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         android:text="Update"
         app:layout_constraintEnd_toEndOf="parent"
