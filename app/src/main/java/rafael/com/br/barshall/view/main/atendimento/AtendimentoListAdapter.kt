@@ -46,17 +46,31 @@ class AtendimentoListAdapter(val context: Context,
     }
 
     class AtendimentoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val CORTE_CABELO = "Corte de cabelo - R$ 20,00"
+        val MANICURE = "Manicure - R$ 25,00"
+        val BARBA = "Barba - R$ 10,00"
+        val PE_DE_CURE = "Pé de cure - R$ 25,00"
+        val LUZES = "Luzes - R$ 20,00"
         fun bindView(atendimento: Attendance,
                      listener: (Attendance) -> Unit,
                      listenerDelete: (Attendance) -> Unit) = with(itemView) {
             tvServico.text = atendimento.servico
             tvFuncionario.text = atendimento.funcionario
-
-            if (atendimento.servico == "Corte de cabelo") {
-                ivServ.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.cortecabelo))
+            Log.i("TIPO_SERVICO", "aaa "+atendimento.servico)
+            when(atendimento.servico){
+                CORTE_CABELO ->{
+                    ivServ.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.cortecabelo))
+                }
+                MANICURE -> {
+                    ivServ.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.manicure))
+                }
+                BARBA -> {
+                    ivServ.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.barba))
+                }
+                PE_DE_CURE -> {
+                    ivServ.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.pedecure))
+                }
             }
-
-            //setOnClickListener{listener(atendimento)}
             setOnClickListener {
                 listenerDelete(atendimento)
                 listener(atendimento)

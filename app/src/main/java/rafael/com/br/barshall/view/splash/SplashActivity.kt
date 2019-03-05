@@ -7,6 +7,8 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.view.animation.AnimationUtils
+import kotlinx.android.synthetic.main.activity_splash.*
 import rafael.com.br.barshall.R
 import rafael.com.br.barshall.model.ResponseStatus
 import rafael.com.br.barshall.view.login.LoginActivity
@@ -41,6 +43,12 @@ class SplashActivity : AppCompatActivity() {
                 loading()
             }
 
+        }else{
+            val anim = AnimationUtils.loadAnimation(this, R.anim.animacao_splash)
+            anim.reset()
+            imgLogo.clearAnimation()
+            imgLogo.startAnimation(anim)
+            loading()
         }
 
     }
