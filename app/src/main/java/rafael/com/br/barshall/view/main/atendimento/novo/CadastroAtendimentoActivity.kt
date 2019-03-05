@@ -47,6 +47,7 @@ class CadastroAtendimentoActivity : AppCompatActivity() {
 
             }
         } else {
+            txNovo.text = "Update attendance"
             btnRegistroAtendimento.text = "Update"
             val atendimentoAtualizar = intent.getParcelableExtra<Attendance>("ATUALIZAR")
             tvData.setText(atendimentoAtualizar.data.toString())

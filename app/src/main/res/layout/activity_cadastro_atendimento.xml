@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/mainBackgroundColor"
     tools:context=".view.main.atendimento.novo.CadastroAtendimentoActivity">
 
     <TextView
         android:id="@+id/txNovo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/nomeApp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="21dp"
         android:layout_marginEnd="32dp"
         android:text="New Attendance"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,8 +20,7 @@
 
     <TextView
         android:id="@+id/tvService"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/labelsApp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
@@ -45,8 +44,7 @@
 
     <TextView
         android:id="@+id/tvFuncionario"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/labelsApp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
@@ -68,8 +66,7 @@
 
     <TextView
         android:id="@+id/tvSchedule"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/labelsApp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
@@ -80,11 +77,10 @@
 
     <EditText
         android:id="@+id/tvData"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="23dp"
-        android:layout_marginEnd="29dp"
+        android:layout_marginEnd="20dp"
+        style="@style/edtApp"
         android:hint="__/__/____"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
