@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.activity_cadastro_atendimento.*
 import rafael.com.br.barshall.R
 import rafael.com.br.barshall.dao.BancoDeDados
 import rafael.com.br.barshall.model.Attendance
+import rafael.com.br.barshall.utils.MaskEditUtil
 import rafael.com.br.barshall.view.main.atendimento.novo.spinner.AdapterFuncionario
 import rafael.com.br.barshall.view.main.atendimento.novo.spinner.AdapterServico
 import java.text.SimpleDateFormat
@@ -36,13 +37,16 @@ class CadastroAtendimentoActivity : AppCompatActivity() {
         val sharedPreferences = this.getSharedPreferences("myapp", Context.MODE_PRIVATE)
         val id_cliente = sharedPreferences.getString("id", "")
 
+        tvData.addTextChangedListener(MaskEditUtil.mask(tvData, MaskEditUtil.FORMAT_DATE))
         val atendimentoAtualizar = intent.getParcelableExtra<Attendance>("ATUALIZAR")
         if(atendimentoAtualizar == null){
             btnRegistroAtendimento.setOnClickListener{
                 val db = BancoDeDados.getDatabase(this)
+                if (tvData.text.toString().length < 10){
+                    Toast.makeText(this, "Please, tell me a date", Toast.LENGTH_SHORT).show()
+                }
                 val atendimento = Attendance(0,id_cliente.toString(), tvData.text.toString(), servicoSelecionado.toString(), funcionarioSelecionado.toString() )
-
-                //if(atendimento.data != "")
+                if(atendimento.data != "")
                 InsertAsyncTask(db!!).execute(atendimento)
 
             }

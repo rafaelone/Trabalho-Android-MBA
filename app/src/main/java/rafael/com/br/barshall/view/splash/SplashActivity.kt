@@ -7,6 +7,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.animation.AnimationUtils
 import kotlinx.android.synthetic.main.activity_splash.*
 import rafael.com.br.barshall.R
@@ -43,6 +44,7 @@ class SplashActivity : AppCompatActivity() {
                 startActivity(homeIntent)
                 finish()
             } else {
+                Log.i("dadadadadad", "ta sempre aqui")
                 val anim = AnimationUtils.loadAnimation(this, R.anim.animacao_splash)
                 anim.reset()
                 imgLogo.clearAnimation()
@@ -56,7 +58,7 @@ class SplashActivity : AppCompatActivity() {
 
     private fun loading() {
         Handler().postDelayed({
-            //callNextActivity()
+            callNextActivity()
         }, 2000)
     }
 
